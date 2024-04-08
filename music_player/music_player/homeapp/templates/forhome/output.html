@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+
+{%include 'forhome/inc/nav.html'%}
+
+{%include 'forhome/inc/search.html'%}
+
+<div class="container" style="margin-top:30px;padding-left: 250px;">
+    <div class="row">
+        <div class="col-3">
+            <h1>Matches...</h1>
+        </div>
+    </div>
+    <div class="row">
+        {% for song in songs %}
+        
+            <div class="card mb-4" style="max-width: 800px; padding-left: 100px; padding-top: 10px;">
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <img src="{{ song.music_image.url }}" class="card-img" alt="{{ song.name }}">
+                        <audio controls>
+                            <source src="{{song.audio.url}}" type="audio/mpeg">
+                            Your browser does not support the audio tag.
+                        </audio>
+                        </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <h3 class="card-title" style="color: green;">{{ song.name }}</h3>
+                            <p class="card-text"><b>Owner :</b>  {{song.owner}}</p>
+                             <p class="card-text"><b>Rating :</b>   {{song.rate}}</p>
+                            <p class="card-text"><small class="text-muted"><b>Description</b>:{{song.description}} </small></p>
+                            <input type="hidden" value="{{song.id}}" id="sid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>  
+

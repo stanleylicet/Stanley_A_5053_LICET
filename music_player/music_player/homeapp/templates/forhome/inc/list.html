@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 0px;">
+    <div class="row">
+        <div class="col-12"><h4 class="mb-3">Most Played</h4> 
+        <hr style="border-color: #000000;"></div>
+        {% for item in song %}
+        <div class="col-md-4 col-lg-3"> 
+        <div class="card my-3">
+        <img src="{{item.music_image.url}}" class="card-image-top" alt="{{item.music_image}}"> 
+        <a href="#">
+        <div class="card-body">
+        <h5 class="card-title text-primary">{{ item.name}}</h5>
+        <p class="card-text">{{item.description}}</p> 
+        </div>
+        </a>
+    </div>
+    </div>
+    {% endfor %}
+
+</div>
